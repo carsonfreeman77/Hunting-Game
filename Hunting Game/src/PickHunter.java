@@ -8,6 +8,7 @@ public class PickHunter
 			{
 				setUpObjects();
 				askQuestions();
+				setUpAnimal();
 				userBattle();
 
 			}
@@ -22,6 +23,9 @@ public class PickHunter
 				weaponP.add(new Weapon("Compound Bow", 100, "Arrow"));
 				weaponP.add(new Weapon("Pistol", 150, ".45"));
 				weaponP.add(new Weapon("Knife", 1, "K N I F E !"));
+				
+				
+				
 				
 			}
 
@@ -59,6 +63,21 @@ public class PickHunter
 					}
 				System.out.println(hunterP.get(0).getName() + " has a stealth level of " + hunterP.get(0).getStealth() + " and a " + hunterP.get(0).getWeapon().getWname() + " that has a range of " + hunterP.get(0).getWeapon().getRange() + " and has " + hunterP.get(0).getWeapon().getKind() + " as ammunition.");
 			}
+		
+		
+		private static void setUpAnimal()
+		{
+			
+			ArrayList <Animal> animalP = new ArrayList <Animal>();
+			animalP.add(new Animal("Bear", 40));
+			animalP.add(new Animal("Ram", 30));
+			animalP.add(new Animal("Mountain Lion", 50));
+			animalP.add(new Animal("Wolf", 70));
+			
+			
+		}
+		
+		
 		private static void userBattle()  //coding the actual battle
 			{
 				System.out.println("Now you're all set, we will rise around 5:00am so get some rest...");
@@ -67,14 +86,73 @@ public class PickHunter
 					
 				try
 					{
-						Thread.sleep(1000);
+						
+						Thread.sleep(11000);
 					} catch (InterruptedException e)
 					{
 						
 						e.printStackTrace();
 						
 					}
-					
+				for (int i = 0; i <2; i++)
+					{
+						System.out.println();
+				for (int j = 0; j <3; j++)
+					{
+						System.out.print(". ");
+						try
+							{
+						
+								Thread.sleep(1000);
+							} 
+						catch (InterruptedException e)
+							{
+						
+								e.printStackTrace();
+						
+							}
+					}
+					}
+				
+				System.out.println();
+				System.out.println();
+				System.out.println("GRRRRRR");
+				
+				try
+					{
+						
+						Thread.sleep(2000);
+					} catch (InterruptedException e)
+					{
+						
+						e.printStackTrace();
+						
+					}
+				
+				for (int i = 0; i <2; i++)
+					{
+						System.out.println();
+				for (int j = 0; j <3; j++)
+					{
+						System.out.print(". ");
+						try
+							{
+						
+								Thread.sleep(1000);
+							} 
+						catch (InterruptedException e)
+							{
+						
+								e.printStackTrace();
+						
+							}
+					}
+					}
+				System.out.println();
+				System.out.println("A");
+				
+				
+				
 				
 			}
 
