@@ -1,15 +1,37 @@
 import java.util.*;
-import java.util.concurrent.TimeUnit;
+
 
 public class PickHunter
 	{
+	
+	
+	
+		public static ArrayList <Animal> animalP = new ArrayList <Animal>();
 		public static ArrayList <Weapon> weaponP = new ArrayList <Weapon>();
+		public static ArrayList <Hunter> hunterP = new ArrayList <Hunter>();
 		public static void main(String[] args)
+			{
+			boolean playing = true;
+			while(playing)
 			{
 				setUpObjects();
 				askQuestions();
 				setUpAnimal();
 				userBattle();
+				System.out.println("Would you like to play again?");
+				Scanner play = new Scanner(System.in);
+				String play2 = play.nextLine();
+				if(play2.equals("Yes"))
+				{
+					
+				}
+				else if(play2.equals("No")) 
+				{
+					System.out.println("Thank you for playing!");
+					playing = false;
+				}
+						
+			}
 
 			}
 
@@ -17,12 +39,12 @@ public class PickHunter
 
 		private static void setUpObjects()
 			{
-
-				weaponP.add(new Weapon("Rifle", 500, ".308"));
+				//instead of range changed it to a damage value
+				weaponP.add(new Weapon("Rifle", 50, ".308"));
 				weaponP.add(new Weapon("Shotgun", 40, "20 gauge"));
-				weaponP.add(new Weapon("Compound Bow", 100, "Arrow"));
-				weaponP.add(new Weapon("Pistol", 150, ".45"));
-				weaponP.add(new Weapon("Knife", 1, "K N I F E !"));
+				weaponP.add(new Weapon("Compound Bow", 10, "Arrow"));
+				weaponP.add(new Weapon("Pistol", 20, ".45"));
+				weaponP.add(new Weapon("Knife", 50, "K N I F E !"));
 				
 				
 				
@@ -40,20 +62,22 @@ public class PickHunter
 						"!\nFrom 0-100 what do you want your stealth to be..."); //added greeting
 				
 				int hunterStealth = in2.nextInt();
-				System.out.println("Please type in the weapon you desire...");
+				System.out.println("Here are the weapons...");
 				System.out.println();
 				
 				int counter = 1;
 				for (Weapon a: weaponP)
 					{
 
-						System.out.println(counter + ". "+ a.getWname() + " with a range of " + a.getRange() + " it also has " + a.getKind() + " as ammunition");
+						System.out.println(counter + ". "+ a.getWname() + " with a damage of " + a.getDamage() + " it also has " + a.getKind() + " as ammunition");
 						counter++;
 					}
+				System.out.println();
+				System.out.println("Please print the weapon you desire...");
 				
 				
 				String hunterWeapon = in.nextLine();
-				ArrayList <Hunter> hunterP = new ArrayList <Hunter>();
+				
 				for (int i = 0; i < weaponP.size(); i++)
 					{
 						if (hunterWeapon.equals(weaponP.get(i).getWname()))
@@ -61,18 +85,18 @@ public class PickHunter
 								hunterP.add(new Hunter(hunterName, hunterStealth, weaponP.get(i)));
 							}
 					}
-				System.out.println(hunterP.get(0).getName() + " has a stealth level of " + hunterP.get(0).getStealth() + " and a " + hunterP.get(0).getWeapon().getWname() + " that has a range of " + hunterP.get(0).getWeapon().getRange() + " and has " + hunterP.get(0).getWeapon().getKind() + " as ammunition.");
+				System.out.println(hunterP.get(0).getName() + " has a stealth level of " + hunterP.get(0).getStealth() + " and a " + hunterP.get(0).getWeapon().getWname() + " that has a damage of " + hunterP.get(0).getWeapon().getDamage() + " and has " + hunterP.get(0).getWeapon().getKind() + " as ammunition.");
 			}
 		
 		
 		private static void setUpAnimal()
 		{
 			
-			ArrayList <Animal> animalP = new ArrayList <Animal>();
-			animalP.add(new Animal("Bear", 40));
-			animalP.add(new Animal("Ram", 30));
-			animalP.add(new Animal("Mountain Lion", 50));
-			animalP.add(new Animal("Wolf", 70));
+			
+			animalP.add(new Animal("Bear", 40, 150));
+			animalP.add(new Animal("Ram", 30, 70));
+			animalP.add(new Animal("Mountain Lion", 50, 100));
+			animalP.add(new Animal("Wolf", 70, 100));
 			
 			
 		}
@@ -80,14 +104,14 @@ public class PickHunter
 		
 		private static void userBattle()  //coding the actual battle
 			{
-				System.out.println("Now you're all set, we will rise around 5:00am so get some rest...");
+				System.out.println("Now that you're all set, we need some rest.\nWe will rise around 5:00am, sleep well.");
 				System.out.println();
 				
 					
 				try
 					{
 						
-						Thread.sleep(11000);
+						Thread.sleep(9000);
 					} catch (InterruptedException e)
 					{
 						
@@ -103,7 +127,7 @@ public class PickHunter
 						try
 							{
 						
-								Thread.sleep(1000);
+								Thread.sleep(600);
 							} 
 						catch (InterruptedException e)
 							{
@@ -121,7 +145,7 @@ public class PickHunter
 				try
 					{
 						
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e)
 					{
 						
@@ -138,7 +162,7 @@ public class PickHunter
 						try
 							{
 						
-								Thread.sleep(1000);
+								Thread.sleep(600);
 							} 
 						catch (InterruptedException e)
 							{
@@ -149,12 +173,205 @@ public class PickHunter
 					}
 					}
 				System.out.println();
-				System.out.println("A");
 				
+				int animal = (int)Math.ceil(Math.random()*4 -1);
+				System.out.println("AHHH A WILD " + animalP.get(animal).getNameA().toUpperCase());
+				System.out.println();
+				System.out.println("Would you like to Fight or Run?");
+				Scanner fightq = new Scanner(System.in);
+				String fight = fightq.nextLine();
+				;
+				if (fight.equals("Fight"))
+				{
+					
+				}
+				else if(fight.equals("Run"))
+				{
+					if(hunterP.get(0).getStealth() <= animalP.get(animal).getAwareness())
+					{
+						System.out.println("You must attack!");
+					} 
+					else if (hunterP.get(0).getStealth() >= animalP.get(animal).getAwareness())
+					{
+						System.out.println("You have gotten away safely!");
+						System.exit(0);
+					}
+					else
+					{
+						
+					}
+				}
+				else 
+				{
+					
+				}
 				
-				
+				System.out.println();
+				System.out.println("The animal has " + animalP.get(animal).getHealth() + " health!");
+				System.out.println("You have 3 attacks!");
+				int attacks = 3;
+				Scanner fightq2 = new Scanner(System.in);
+				System.out.println("Attack now!  ....or try to Run again?");
+				String fight2 = fightq2.nextLine();
+				boolean attack = true;
+				System.out.println();
+				if(fight2.equals("Attack"))
+				{
+					while(attack)
+					{
+						for (int i = 0; i < attacks; i++)
+						{
+							attacks --;
+							System.out.println();
+							System.out.println("You attack!");
+							System.out.println();
+							System.out.println("You hit the " + animalP.get(animal).getNameA() + " for " + hunterP.get(0).getWeapon().getDamage() + " damage!");
+							animalP.get(animal).setHealth(animalP.get(animal).getHealth() - hunterP.get(0).getWeapon().getDamage());
+							
+							if(animalP.get(animal).getHealth() <= 0)
+							{
+								System.out.println("You have successfully taken out the " + animalP.get(animal).getNameA()+"!");
+							}
+							else
+							{
+								System.out.println("The " + animalP.get(animal).getNameA()+ " has " + animalP.get(animal).getHealth() + " health!");
+							}
+							
+							if(animalP.get(animal).getHealth() > 0)
+							{
+								
+							
+								if(attacks > 1)
+								{
+									System.out.println("You have " + attacks + " attacks left!");
+								}
+								else if (attacks < 1)
+								{
+									System.out.println("You have " + attacks + " attack left!");
+								}
+							
+							}
+							else
+							{
+								
+							}
+							
+							try
+							{
+						
+								Thread.sleep(2000);
+							} 
+						catch (InterruptedException e)
+							{
+						
+								e.printStackTrace();
+						
+							}
+							
+							
+							
+						}
+						
+						if(animalP.get(animal).getHealth() <= 0)
+						{
+							attack = false;
+						}
+						else if(animalP.get(animal).getHealth() > 0)
+						{
+							System.out.println("The " + animalP.get(animal).getNameA() + "has overcome your valiant efforts to take it out.");
+							System.out.println("You lose:(");
+							System.exit(0);
+						}
+						
+					}
+					
+				}
+				else if (fight2.equals("Run"))
+				{
+					int c = (int)(Math.random()*4 +10);
+					hunterP.get(0).setStealth(hunterP.get(0).getStealth() + c);
+					if(hunterP.get(0).getStealth() > animalP.get(animal).getAwareness())
+					{
+						System.out.println("You have gotten away safely");
+						
+					}
+					else if(hunterP.get(0).getStealth() < animalP.get(animal).getAwareness())
+					{
+						System.out.println("YOU MUST ATTACK!");
+						System.out.println();
+						while(attack)
+						{
+							for (int i = 0; i < attacks; i++)
+							{
+								attacks --;
+								System.out.println();
+								System.out.println("You attack!");
+								System.out.println();
+								System.out.println("You hit the " + animalP.get(animal).getNameA() + " for " + hunterP.get(0).getWeapon().getDamage() + " damage!");
+								animalP.get(animal).setHealth(animalP.get(animal).getHealth() - hunterP.get(0).getWeapon().getDamage());
+								
+								if(animalP.get(animal).getHealth() <= 0)
+								{
+									System.out.println("You have successfully taken out the " + animalP.get(animal).getNameA()+"!");
+								}
+								else
+								{
+									System.out.println("The " + animalP.get(animal).getNameA()+ " has " + animalP.get(animal).getHealth() + " health!");
+								}
+								
+								if(animalP.get(animal).getHealth() > 0)
+								{
+									
+								
+									if(attacks > 1)
+									{
+										System.out.println("You have " + attacks + " attacks left!");
+									}
+									else if (attacks < 1)
+									{
+										System.out.println("You have " + attacks + " attack left!");
+									}
+								
+								}
+								else
+								{
+									
+								}
+								
+								try
+								{
+							
+									Thread.sleep(2000);
+								} 
+							catch (InterruptedException e)
+								{
+							
+									e.printStackTrace();
+							
+								}
+								
+								
+								
+							}
+							
+							if(animalP.get(animal).getHealth() <= 0)
+							{
+								attack = false;
+							}
+							else if(animalP.get(animal).getHealth() > 0)
+							{
+								System.out.println("The " + animalP.get(animal).getNameA() + "has overcome your valiant efforts to take it out.");
+								System.out.println("You lose:(");
+								System.exit(0);
+							}
+							
+						}
+						
+					}
+				}
 				
 			}
-
-	}
+		
+	
+}
 

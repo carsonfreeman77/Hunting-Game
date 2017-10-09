@@ -2,13 +2,16 @@ public class Animal
 	{
 		private String nameA;
 		private int awareness;
-		public Animal(String nA, int aw)
+		private int health;
+		public Animal(String nA, int aw, int ha)
 		{
 			nameA = nA;
 			awareness = aw;
+			health = ha;
 		}
 		
 	
+		
 		public String getNameA()
 			{
 				return nameA;
@@ -25,5 +28,13 @@ public class Animal
 			{
 				this.awareness = awareness;
 			}
+		public int getHealth() 
+		{
+			return health;
+		}
+		public void setHealth(int health)
+		{
+			this.health = health;
+		}
 		}
 		

@@ -2,12 +2,12 @@
 public class Weapon
 	{
 		private String wname;
-		private int range;
+		private int damage;
 		private String kind;
 		public Weapon (String wn, int r, String k)
 		{
 			wname = wn;
-			range = r;
+			damage = r;
 			kind = k;
 		}
 		public static void main(String[] args)
@@ -22,13 +22,13 @@ public class Weapon
 			{
 				this.wname = wname;
 			}
-		public int getRange()
+		public int getDamage()
 			{
-				return range;
+				return damage;
 			}
-		public void setRange(int range)
+		public void setDamage(int range)
 			{
-				this.range = range;
+				this.damage = range;
 			}
 		public String getKind()
 			{
