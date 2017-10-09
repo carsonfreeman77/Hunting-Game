@@ -11,12 +11,14 @@ public class PickHunter
 		public static ArrayList <Hunter> hunterP = new ArrayList <Hunter>();
 		public static void main(String[] args)
 			{
-			boolean playing = true;
-			while(playing)
-			{
 				setUpObjects();
 				askQuestions();
 				setUpAnimal();
+				
+			boolean playing = true;
+			while(playing)
+			{
+				
 				userBattle();
 				System.out.println("Would you like to play again?");
 				Scanner play = new Scanner(System.in);
